@@ -7,11 +7,12 @@ It will create a class with a main entry point that will call the annotated meth
 Project Structure
 -----------------
 
-The project is divided in 4 modules:
- {root}							The main project that will compile the 3 sub projects
- {root}/annotation 				The project that defines the Annotation Type
- {root}/annotationProcessor		The project that defines the Annotation Processor. It also has the Plugin.xml definition to run inside Eclipse
- {root}/example 				The project that make use of the annotation and will trigger in compilation the execution of the Annotation Processor
+The project is divided in 4 modules
+
+ - __*{project_home}*__							              The main project that will compile the 3 sub projects
+ - __*{project_home}*/annotation__ 				     The project that defines the Annotation Type
+ - __*{project_home}*/annotationProcessor__	The project that defines the Annotation Processor. It also has the Plugin.xml definition to run inside Eclipse
+ - __*{project_home}*/example__ 				        The project that make use of the annotation and will trigger in compilation the execution of the Annotation Processor
 
 Project requirements
 --------------------
