@@ -21,12 +21,9 @@
 				<version>${maven.compiler.version}</version>
 				<configuration>
 					<verbose>true</verbose>
-					<fork>true</fork>
-					<debug>true</debug>
-					<executable>${JAVA_HOME}/bin/javac</executable>
-					<compilerVersion>${jdk.version}</compilerVersion>
 					<source>${jdk.version}</source>
 					<target>${jdk.version}</target>
+					<generatedSourcesDirectory>${project.build.directory}/generated-sources</generatedSourcesDirectory>
 				</configuration>
 			</plugin>
 		</plugins>
