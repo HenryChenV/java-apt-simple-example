@@ -18,12 +18,11 @@
 				<version>${maven.compiler.version}</version>
 				<configuration>
 					<verbose>true</verbose>
-					<fork>true</fork>
 					<source>${jdk.version}</source>
 					<target>${jdk.version}</target>
 					<!-- Prevent running Annotations Processors when compiling this project -->
 					<compilerArgument>-proc:none</compilerArgument>
-				</configuration>
+				</configuration>				
 			</plugin>
 		</plugins>
 	</build>
