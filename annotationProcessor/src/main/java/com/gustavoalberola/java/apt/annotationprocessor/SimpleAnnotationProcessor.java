@@ -19,7 +19,7 @@ public class SimpleAnnotationProcessor extends AbstractProcessor {
 		processingEnv.getMessager().printMessage(Kind.NOTE, "Annotation processor executed!");
 		JavaFileObject jfo = null;
 		try {
-			jfo = processingEnv.getFiler().createSourceFile("something.properties");						
+			jfo = processingEnv.getFiler().createSourceFile("annotations.MyGeneratedClass");						
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		} 
@@ -27,8 +27,13 @@ public class SimpleAnnotationProcessor extends AbstractProcessor {
 		BufferedWriter bw = null;
 		try {
 			bw = new BufferedWriter(jfo.openWriter());
-			bw.append("my.property=value");
+			
+			bw.append("package ");
+			bw.append("annotations;");
 			bw.newLine();
+			bw.append("public class MyGeneratedClass {}");
+			bw.newLine();
+			
 			bw.flush();
 		} catch (IOException e) {
 			throw new RuntimeException(e);
