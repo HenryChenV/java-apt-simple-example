@@ -7,8 +7,8 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>java-apt-simple-example-annotation-processor</artifactId>
-	<name>Annotation Processor</name>
+	<artifactId>java-apt-simple-example-annotation-processor-two</artifactId>
+	<name>Annotation Processor 2</name>
 
 	<build>
 		<plugins>

@@ -14,9 +14,14 @@ import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic.Kind;
 import javax.tools.JavaFileObject;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 @SupportedAnnotationTypes(value = { "com.gustavoalberola.java.apt.annotation.SimpleAnnotation" })
 public class SimpleAnnotationProcessor extends AbstractProcessor {
 
+	static final private Log LOGGER = LogFactory.getLog(SimpleAnnotationProcessor.class);
+	
 	static private final String CLASS_SUFFIX = "WrappedClass";
 	
 	@Override
@@ -24,6 +29,9 @@ public class SimpleAnnotationProcessor extends AbstractProcessor {
 		processingEnv.getMessager().printMessage(Kind.NOTE, "Annotation processor executed!");
 
 		for (TypeElement annotationElement : annotations) {
+			
+			LOGGER.info("APT Tool Example");
+			
 			PackageElement packageElement = (PackageElement) annotationElement.getEnclosingElement();
 			String pckName = packageElement.getQualifiedName().toString();
 			
@@ -34,9 +42,19 @@ public class SimpleAnnotationProcessor extends AbstractProcessor {
 				
 				if (implementatorElement.getKind() == ElementKind.METHOD) {
 					
+					// How to read Methods
+					
+//					ExecutableElement methodElement = (ExecutableElement) implementatorElement;
+//					List<? extends VariableElement> parameters = methodElement.getParameters();
+//					
+//					for (VariableElement parameter : parameters) {
+//						
+//					}
+					
 					TypeElement classElement = (TypeElement) implementatorElement.getEnclosingElement();
 					String classSimpleName = classElement.getSimpleName().toString();
 					String classQualifiedName = classElement.getQualifiedName().toString();
+					
 					JavaFileObject jfo = null;
 					
 					try {

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Java APT Simple Example Annotation Processor
+Bundle-SymbolicName: java.apt.simple.example.annotation.processor;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Export-Package: com.gustavoalberola.java.apt.annotationprocessor
+Bundle-Activator: com.gustavoalberola.java.apt.validator.Activator
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.8.0",
+ org.eclipse.jdt.apt.core;bundle-version="3.3.500"

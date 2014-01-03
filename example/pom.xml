@@ -1,24 +1,56 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.gustavoalberola.java</groupId>
-    <artifactId>java-apt-simple-example</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-    
-  <artifactId>java-apt-simple-example-example</artifactId>
-  <name>Example</name>
-  
-  <dependencies>
-  	<dependency>
-  		<groupId>com.gustavoalberola.java</groupId>
-  		<artifactId>java-apt-simple-example-annotations</artifactId>
-  		<version>${project.parent.version}</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>com.gustavoalberola.java</groupId>
-  		<artifactId>java-apt-simple-example-annotation-processor</artifactId>
-  		<version>${project.parent.version}</version>
-  	</dependency>
-  </dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.gustavoalberola.java</groupId>
+		<artifactId>java-apt-simple-example</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>java-apt-simple-example-example</artifactId>
+	<name>Example</name>
+	
+	<properties>
+		<jdk.version>1.6</jdk.version>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>connector-certification</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>2.3.1</version>
+						<configuration>
+							<source>${jdk.version}</source>
+							<target>${jdk.version}</target>
+						 	<annotationProcessors>
+						 		<annotationProcessor>com.gustavoalberola.java.apt.annotationprocessor.SimpleAnnotationProcessor2</annotationProcessor>
+						 	</annotationProcessors>							
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.gustavoalberola.java</groupId>
+			<artifactId>java-apt-simple-example-annotations</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.gustavoalberola.java</groupId>
+			<artifactId>java-apt-simple-example-annotation-processor</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.gustavoalberola.java</groupId>
+			<artifactId>java-apt-simple-example-annotation-processor-two</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+	</dependencies>
 </project>
